@@ -1,6 +1,5 @@
 
 const postsArray = require('../data/posts')
-const { post } = require('../routers/postRouter')
 
 
 //INDEX-POSTS-ARRAY
@@ -139,12 +138,6 @@ const destroy = (req, res) => {
     // status 204
     res.sendStatus(204)
 }
-
-
-
-
-
-
 
 
 module.exports = { index, show, store, update, modify, destroy }
