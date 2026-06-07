@@ -41,6 +41,8 @@ const postController = require('../controllers/postController')
 //     res.send('destroy of post with id')
 // })
 
+// module.exports=router
+
 ///////////////////////////////
 
 //INDEX-GET
