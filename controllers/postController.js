@@ -4,16 +4,49 @@ const postsArray = require('../data/posts')
 
 //INDEX-POSTS-ARRAY
 
-const index = (req, res) => {
-    res.json(postsArray)
-}
-
+// const index = (req, res) => {
+//     res.json(postsArray)
+// }
 
 //INDEX
 
 // const index = (req, res) => {
 //     res.send('index of post')
 // }
+
+
+
+//INDEX-FILTER
+
+const index = (req, res) => {
+
+    const tag = req.query.tag
+
+    if (tag)
+        const filteredPost = posts.filter(item => item.tags.includes(tag))
+    return res.json(filteredPost)
+
+    console.log(filteredPost);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //SHOW
 
@@ -34,25 +67,6 @@ const show = (req, res) => {
 
 
 }
-//show
-// router.get('/:id', function (req, res) {
-//     // recuperiamo l'id dall' URL e trasformiamolo in numero
-//     const id = parseInt(req.params.id)
-
-//     // cerchiamo il pizza tramite id
-//     const pizza = menu.find(pizza => pizza.id === id);
-
-//     // Restituiamolo sotto forma di JSON   
-//     res.json(pizza);
-// });
-
-
-
-
-
-
-
-
 
 
 //STORE
@@ -81,41 +95,13 @@ const modify = (req, res) => {
 // }
 
 
-
-
-
-
-// router.delete('/:id', function (req, res) {
-
-//   // recuperiamo l'id dall' URL e trasformiamolo in numero
-//   const id = parseInt(req.params.id)
-
-//   // cerchiamo il pizza tramite id
-//   const pizza = menu.find(pizza => pizza.id === id);
-
-//   // Piccolo controllo
-//   if (!pizza) {
-//     res.status(404);
-
-//     return res.json({
-//       status: 404,
-//       error: "Not Found",
-//       message: "Pizza non trovata"
-//     })
-//   }
-
-//   // Rimuoviamo la pizza dal menu
-//   menu.splice(menu.indexOf(pizza), 1);
-
-//   // Restituiamo lo status corretto
-//   res.sendStatus(204)
-// });
-
-
-
 const destroy = (req, res) => {
 
     const id = parseInt(req.params.id)
+    console.log(typeof req.params.id);
+    console.log(typeof parseInt(req.params.id));
+
+
 
     const postId = postsArray.find(item => item.id === id)
     if (!postId) {

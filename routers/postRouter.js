@@ -67,3 +67,4 @@ router.delete('/:id', postController.destroy)
 
 //EXPORT
 module.exports = router
+
