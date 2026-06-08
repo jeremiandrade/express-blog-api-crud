@@ -22,9 +22,11 @@ const index = (req, res) => {
 
     const tag = req.query.tag
 
-    if (tag)
-        const filteredPost = posts.filter(item => item.tags.includes(tag))
-    return res.json(filteredPost)
+    if (tag) {
+        const filteredPost = postsArray.filter(item => item.tags.includes(tag))
+        return res.json(filteredPost)
+
+    }
 
     console.log(filteredPost);
 
