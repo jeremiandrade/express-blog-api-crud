@@ -85,8 +85,33 @@ const store = (req, res) => {
 const update = (req, res) => {
     // res.send('update of post with id ')
 
+    //cerco ID
     const id = parseInt(req.params.id)
 
+    //cerco il post tramite id
+    const onePost = postsArray.find(post => post.id === id)
+    //controllo tramite IF
+    if (!onePost) {
+        res.status(404)
+
+        return res.json({
+            error: "Not Found",
+            message: "Post  non trovato"
+        })
+
+        //aggiorno il post
+
+    }
+    onePost.title = req.body.title
+    onePost.content = req.body.content
+    onePost.image = req.body.image
+    onePost.tags = req.body.tags
+
+    //controllo in console
+    console.log(postsArray);
+
+    //restituiso sotto forma di Json
+    res.json(onePost)
 }
 
 
