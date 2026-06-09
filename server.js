@@ -4,6 +4,8 @@ const port = 3000
 
 const postRouter = require('./routers/postRouter')
 
+//registro il bosdy-parser per poter leggere i dati
+app.use(express.json())
 
 
 //definisco la rotta 

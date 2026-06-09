@@ -25,29 +25,9 @@ const index = (req, res) => {
     if (tag) {
         const filteredPost = postsArray.filter(item => item.tags.includes(tag))
         return res.json(filteredPost)
-
     }
-
     console.log(filteredPost);
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //SHOW
@@ -65,21 +45,48 @@ const show = (req, res) => {
     const singlePost = postsArray.find(item => item.id === id)
     //restituisco sotto forma di Json
     res.json(singlePost)
-
-
-
 }
 
 
-//STORE
+//STORE-POST
 const store = (req, res) => {
-    res.send('store of post with')
+    // res.send('store of post with')
+
+    //creo un nuovo ID ed incremento
+    const newId = postsArray[postsArray.length - 1].id + 1
+
+    //creo nuovo oggetto per il post
+    const newPost = {
+        id: newId,
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags
+    }
+    // aggiungo il nuovo post 
+
+    postsArray.push(newPost)
+
+    //loggo in in console
+    console.log(postsArray);
+    console.log(newPost);
+
+
+    //restituisco il nuovo status
+
+    res.status(201)
+    res.json(newPost)
+
+
 }
 
 //UPDATE
 
 const update = (req, res) => {
-    res.send('update of post with id ')
+    // res.send('update of post with id ')
+
+    const id = parseInt(req.params.id)
+
 }
 
 
