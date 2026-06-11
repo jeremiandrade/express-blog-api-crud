@@ -17,7 +17,7 @@ const postsArray = require('../data/posts')
 
 
 //INDEX-FILTER
-
+// se c'è tag, mi restituisce i post filtrati, altrimenti mi restituisce la lista di tutti i post
 const index = (req, res) => {
 
     const tag = req.query.tag
@@ -26,7 +26,8 @@ const index = (req, res) => {
         const filteredPost = postsArray.filter(item => item.tags.includes(tag))
         return res.json(filteredPost)
     }
-    console.log(filteredPost);
+    // console.log(filteredPost);
+    res.json(postsArray)
 }
 
 
