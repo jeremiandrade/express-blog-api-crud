@@ -5,7 +5,7 @@ const postRouter = require('./routers/postRouter')
 const serverError500 = require('./middleware/serverError500')
 const notFound404 = require('./middleware/notFound404')
 
-//registro il bosdy-parser per poter leggere i dati
+//registro il body-parser per poter leggere i dati
 app.use(express.json())
 
 
@@ -59,13 +59,11 @@ app.use('/posts', postRouter)
 
 /////////////////////////////////////////////////
 
-//NOT FOUND 404
-
-app.use(notFound404)
-
 //SERVER ERROR 500
 app.use(serverError500)
 
+//NOT FOUND 404
+app.use(notFound404)
 
 
 //start server 
@@ -73,11 +71,3 @@ app.listen(port, () => {
     console.log(`Server Listening http://localhost:${port}`)
 })
 
-
-// Destroy dovrà eliminare un singolo post dalla lista, stampare nel terminale (console.log) la lista aggiornata, e rispondere con uno stato 204 e nessun contenuto.
-
-
-
-// Dopo aver completato tutte le operazioni CRUD, completiamo le nostre API inserendo un middleware per la gestione delle rotte non registrate e uno per la gestione degli errori.
-// Se viene chiamato un endpoint inesistente, un middleware dovrà rispondere un messaggio e uno status appropriato.
-// Se viene generato un errore, un middleware si occuperà di rispondere con un messaggio e uno status appropriato.

@@ -81,7 +81,7 @@ const store = (req, res) => {
 
 }
 
-//UPDATE
+//UPDATE-PUT
 
 const update = (req, res) => {
     // res.send('update of post with id ')
